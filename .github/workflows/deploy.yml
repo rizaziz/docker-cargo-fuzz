@@ -12,13 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v6.0.2
 
       - name: Login to GitHub Container Registry
         run: echo "${{ secrets.TOKEN }}" | docker login ghcr.io -u $ --password-stdin
 
       - name: Build and Push Docker Image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v7.0.0
         with:
           push: true
           tags: ghcr.io/rizaziz/cargo-fuzz:latest
